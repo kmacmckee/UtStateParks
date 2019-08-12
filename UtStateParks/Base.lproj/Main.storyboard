@@ -22,7 +22,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="4000"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="skJ-ab-4KB" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="4305.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="4265.5"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jS1-no-cfD">
                                                 <rect key="frame" x="0.0" y="-45" width="414" height="2800"/>
@@ -69,7 +69,7 @@
                                     </label>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="IXy-Sa-SZn" secondAttribute="bottom" constant="20" id="Aw3-pI-u6Q"/>
+                                    <constraint firstAttribute="bottom" secondItem="IXy-Sa-SZn" secondAttribute="bottom" constant="-20" id="Aw3-pI-u6Q"/>
                                     <constraint firstAttribute="trailing" secondItem="skJ-ab-4KB" secondAttribute="trailing" id="KeQ-Ge-Q30"/>
                                     <constraint firstItem="skJ-ab-4KB" firstAttribute="width" secondItem="CIZ-Oq-1oP" secondAttribute="width" id="KkL-5C-HHE"/>
                                     <constraint firstItem="skJ-ab-4KB" firstAttribute="top" secondItem="CIZ-Oq-1oP" secondAttribute="top" id="KpE-mt-OUo"/>

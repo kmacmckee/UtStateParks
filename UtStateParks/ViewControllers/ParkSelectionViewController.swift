@@ -64,8 +64,11 @@ class ParkSelectionViewController: UIViewController {
         
         self.currentPark = parks.first
         
+        //print(self.currentPark)
+        
         
         DispatchQueue.main.async {
+            
             self.animationView.stop()
             self.animationView.isHidden = true
             self.parkNameLabel.text = self.currentPark?.fullName
@@ -85,6 +88,7 @@ class ParkSelectionViewController: UIViewController {
         animationView.animation = Animation.named("loaderBlack")
         animationView.loopMode = .loop
         animationView.play()
+        
     }
     
 

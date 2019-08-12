@@ -1,0 +1,597 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3EEF3AB63BF6649028E88019 /* Pods_UtStateParks.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D7EBE224B73B69D91E1EF47 /* Pods_UtStateParks.framework */; };
+		7A186DD0AD616347737B23DF /* Pods_UtStateParksTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECC91DCD15911F89AA5B6701 /* Pods_UtStateParksTests.framework */; };
+		C4AE8F1B22FF82670000DB71 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AE8F1A22FF82670000DB71 /* AppDelegate.swift */; };
+		C4AE8F2022FF82670000DB71 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4AE8F1E22FF82670000DB71 /* Main.storyboard */; };
+		C4AE8F2222FF82680000DB71 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4AE8F2122FF82680000DB71 /* Assets.xcassets */; };
+		C4AE8F2522FF82680000DB71 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4AE8F2322FF82680000DB71 /* LaunchScreen.storyboard */; };
+		C4AE8F3022FF82680000DB71 /* UtStateParksTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AE8F2F22FF82680000DB71 /* UtStateParksTests.swift */; };
+		C4AE8F3B22FF82A10000DB71 /* Park.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AE8F3A22FF82A10000DB71 /* Park.swift */; };
+		C4AE8F3D22FF83270000DB71 /* ParksAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AE8F3C22FF83270000DB71 /* ParksAPI.swift */; };
+		C4AE8F3F22FF8F790000DB71 /* ParkSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AE8F3E22FF8F790000DB71 /* ParkSelectionViewController.swift */; };
+		C4AE8F4122FF96970000DB71 /* loaderBlack.json in Resources */ = {isa = PBXBuildFile; fileRef = C4AE8F4022FF96970000DB71 /* loaderBlack.json */; };
+		C4AE8F4422FFB65C0000DB71 /* UIImage+Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AE8F4322FFB65C0000DB71 /* UIImage+Gradient.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C4AE8F2C22FF82680000DB71 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C4AE8F0F22FF82670000DB71 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C4AE8F1622FF82670000DB71;
+			remoteInfo = UtStateParks;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		015F23B82C1FE7825AC4E339 /* Pods-UtStateParksTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UtStateParksTests.release.xcconfig"; path = "Target Support Files/Pods-UtStateParksTests/Pods-UtStateParksTests.release.xcconfig"; sourceTree = "<group>"; };
+		2C8CEDEEE43C6BA058A2E47C /* Pods-UtStateParks.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UtStateParks.release.xcconfig"; path = "Target Support Files/Pods-UtStateParks/Pods-UtStateParks.release.xcconfig"; sourceTree = "<group>"; };
+		2E588456355355B054D92678 /* Pods-UtStateParks.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UtStateParks.debug.xcconfig"; path = "Target Support Files/Pods-UtStateParks/Pods-UtStateParks.debug.xcconfig"; sourceTree = "<group>"; };
+		6D7EBE224B73B69D91E1EF47 /* Pods_UtStateParks.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UtStateParks.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C4AE8F1722FF82670000DB71 /* UtStateParks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UtStateParks.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C4AE8F1A22FF82670000DB71 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		C4AE8F1F22FF82670000DB71 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C4AE8F2122FF82680000DB71 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C4AE8F2422FF82680000DB71 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		C4AE8F2622FF82680000DB71 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C4AE8F2B22FF82680000DB71 /* UtStateParksTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UtStateParksTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C4AE8F2F22FF82680000DB71 /* UtStateParksTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtStateParksTests.swift; sourceTree = "<group>"; };
+		C4AE8F3122FF82680000DB71 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C4AE8F3A22FF82A10000DB71 /* Park.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Park.swift; sourceTree = "<group>"; };
+		C4AE8F3C22FF83270000DB71 /* ParksAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParksAPI.swift; sourceTree = "<group>"; };
+		C4AE8F3E22FF8F790000DB71 /* ParkSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkSelectionViewController.swift; sourceTree = "<group>"; };
+		C4AE8F4022FF96970000DB71 /* loaderBlack.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loaderBlack.json; sourceTree = "<group>"; };
+		C4AE8F4322FFB65C0000DB71 /* UIImage+Gradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Gradient.swift"; sourceTree = "<group>"; };
+		ECC91DCD15911F89AA5B6701 /* Pods_UtStateParksTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UtStateParksTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EDDE720CEBBDD3BAAB39F948 /* Pods-UtStateParksTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UtStateParksTests.debug.xcconfig"; path = "Target Support Files/Pods-UtStateParksTests/Pods-UtStateParksTests.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C4AE8F1422FF82670000DB71 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3EEF3AB63BF6649028E88019 /* Pods_UtStateParks.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C4AE8F2822FF82680000DB71 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7A186DD0AD616347737B23DF /* Pods_UtStateParksTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4D4A4EF2ACAACE85A661AEB5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2E588456355355B054D92678 /* Pods-UtStateParks.debug.xcconfig */,
+				2C8CEDEEE43C6BA058A2E47C /* Pods-UtStateParks.release.xcconfig */,
+				EDDE720CEBBDD3BAAB39F948 /* Pods-UtStateParksTests.debug.xcconfig */,
+				015F23B82C1FE7825AC4E339 /* Pods-UtStateParksTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		85C0CE01E525DB5B16114F9A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6D7EBE224B73B69D91E1EF47 /* Pods_UtStateParks.framework */,
+				ECC91DCD15911F89AA5B6701 /* Pods_UtStateParksTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C4AE8F0E22FF82670000DB71 = {
+			isa = PBXGroup;
+			children = (
+				C4AE8F1922FF82670000DB71 /* UtStateParks */,
+				C4AE8F2E22FF82680000DB71 /* UtStateParksTests */,
+				C4AE8F1822FF82670000DB71 /* Products */,
+				4D4A4EF2ACAACE85A661AEB5 /* Pods */,
+				85C0CE01E525DB5B16114F9A /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		C4AE8F1822FF82670000DB71 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C4AE8F1722FF82670000DB71 /* UtStateParks.app */,
+				C4AE8F2B22FF82680000DB71 /* UtStateParksTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C4AE8F1922FF82670000DB71 /* UtStateParks */ = {
+			isa = PBXGroup;
+			children = (
+				C4AE8F1A22FF82670000DB71 /* AppDelegate.swift */,
+				C4AE8F1E22FF82670000DB71 /* Main.storyboard */,
+				C4AE8F3A22FF82A10000DB71 /* Park.swift */,
+				C4AE8F3C22FF83270000DB71 /* ParksAPI.swift */,
+				C4AE8F4322FFB65C0000DB71 /* UIImage+Gradient.swift */,
+				C4AE8F4222FFA14E0000DB71 /* ViewControllers */,
+				C4AE8F2122FF82680000DB71 /* Assets.xcassets */,
+				C4AE8F2322FF82680000DB71 /* LaunchScreen.storyboard */,
+				C4AE8F2622FF82680000DB71 /* Info.plist */,
+				C4AE8F4022FF96970000DB71 /* loaderBlack.json */,
+			);
+			path = UtStateParks;
+			sourceTree = "<group>";
+		};
+		C4AE8F2E22FF82680000DB71 /* UtStateParksTests */ = {
+			isa = PBXGroup;
+			children = (
+				C4AE8F2F22FF82680000DB71 /* UtStateParksTests.swift */,
+				C4AE8F3122FF82680000DB71 /* Info.plist */,
+			);
+			path = UtStateParksTests;
+			sourceTree = "<group>";
+		};
+		C4AE8F4222FFA14E0000DB71 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				C4AE8F3E22FF8F790000DB71 /* ParkSelectionViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C4AE8F1622FF82670000DB71 /* UtStateParks */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C4AE8F3422FF82680000DB71 /* Build configuration list for PBXNativeTarget "UtStateParks" */;
+			buildPhases = (
+				20FC60EF76D49F2D4D489237 /* [CP] Check Pods Manifest.lock */,
+				C4AE8F1322FF82670000DB71 /* Sources */,
+				C4AE8F1422FF82670000DB71 /* Frameworks */,
+				C4AE8F1522FF82670000DB71 /* Resources */,
+				5D730F9E113A913AD9697557 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = UtStateParks;
+			productName = UtStateParks;
+			productReference = C4AE8F1722FF82670000DB71 /* UtStateParks.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C4AE8F2A22FF82680000DB71 /* UtStateParksTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C4AE8F3722FF82680000DB71 /* Build configuration list for PBXNativeTarget "UtStateParksTests" */;
+			buildPhases = (
+				43EFA6F52F24C5E7EBDD86AD /* [CP] Check Pods Manifest.lock */,
+				C4AE8F2722FF82680000DB71 /* Sources */,
+				C4AE8F2822FF82680000DB71 /* Frameworks */,
+				C4AE8F2922FF82680000DB71 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C4AE8F2D22FF82680000DB71 /* PBXTargetDependency */,
+			);
+			name = UtStateParksTests;
+			productName = UtStateParksTests;
+			productReference = C4AE8F2B22FF82680000DB71 /* UtStateParksTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C4AE8F0F22FF82670000DB71 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1030;
+				LastUpgradeCheck = 1030;
+				ORGANIZATIONNAME = "Kobe McKee";
+				TargetAttributes = {
+					C4AE8F1622FF82670000DB71 = {
+						CreatedOnToolsVersion = 10.3;
+					};
+					C4AE8F2A22FF82680000DB71 = {
+						CreatedOnToolsVersion = 10.3;
+						TestTargetID = C4AE8F1622FF82670000DB71;
+					};
+				};
+			};
+			buildConfigurationList = C4AE8F1222FF82670000DB71 /* Build configuration list for PBXProject "UtStateParks" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C4AE8F0E22FF82670000DB71;
+			productRefGroup = C4AE8F1822FF82670000DB71 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C4AE8F1622FF82670000DB71 /* UtStateParks */,
+				C4AE8F2A22FF82680000DB71 /* UtStateParksTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C4AE8F1522FF82670000DB71 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C4AE8F2522FF82680000DB71 /* LaunchScreen.storyboard in Resources */,
+				C4AE8F2222FF82680000DB71 /* Assets.xcassets in Resources */,
+				C4AE8F4122FF96970000DB71 /* loaderBlack.json in Resources */,
+				C4AE8F2022FF82670000DB71 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C4AE8F2922FF82680000DB71 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		20FC60EF76D49F2D4D489237 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-UtStateParks-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		43EFA6F52F24C5E7EBDD86AD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-UtStateParksTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5D730F9E113A913AD9697557 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-UtStateParks/Pods-UtStateParks-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-UtStateParks/Pods-UtStateParks-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-UtStateParks/Pods-UtStateParks-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C4AE8F1322FF82670000DB71 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C4AE8F1B22FF82670000DB71 /* AppDelegate.swift in Sources */,
+				C4AE8F3F22FF8F790000DB71 /* ParkSelectionViewController.swift in Sources */,
+				C4AE8F3D22FF83270000DB71 /* ParksAPI.swift in Sources */,
+				C4AE8F4422FFB65C0000DB71 /* UIImage+Gradient.swift in Sources */,
+				C4AE8F3B22FF82A10000DB71 /* Park.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C4AE8F2722FF82680000DB71 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C4AE8F3022FF82680000DB71 /* UtStateParksTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C4AE8F2D22FF82680000DB71 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C4AE8F1622FF82670000DB71 /* UtStateParks */;
+			targetProxy = C4AE8F2C22FF82680000DB71 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		C4AE8F1E22FF82670000DB71 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C4AE8F1F22FF82670000DB71 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		C4AE8F2322FF82680000DB71 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C4AE8F2422FF82680000DB71 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C4AE8F3222FF82680000DB71 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		C4AE8F3322FF82680000DB71 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C4AE8F3522FF82680000DB71 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2E588456355355B054D92678 /* Pods-UtStateParks.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 636DWTJB2B;
+				INFOPLIST_FILE = UtStateParks/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = kmacmckee.UtStateParks;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C4AE8F3622FF82680000DB71 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2C8CEDEEE43C6BA058A2E47C /* Pods-UtStateParks.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 636DWTJB2B;
+				INFOPLIST_FILE = UtStateParks/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = kmacmckee.UtStateParks;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		C4AE8F3822FF82680000DB71 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EDDE720CEBBDD3BAAB39F948 /* Pods-UtStateParksTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 636DWTJB2B;
+				INFOPLIST_FILE = UtStateParksTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = kmacmckee.UtStateParksTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/UtStateParks.app/UtStateParks";
+			};
+			name = Debug;
+		};
+		C4AE8F3922FF82680000DB71 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 015F23B82C1FE7825AC4E339 /* Pods-UtStateParksTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 636DWTJB2B;
+				INFOPLIST_FILE = UtStateParksTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = kmacmckee.UtStateParksTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/UtStateParks.app/UtStateParks";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C4AE8F1222FF82670000DB71 /* Build configuration list for PBXProject "UtStateParks" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C4AE8F3222FF82680000DB71 /* Debug */,
+				C4AE8F3322FF82680000DB71 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C4AE8F3422FF82680000DB71 /* Build configuration list for PBXNativeTarget "UtStateParks" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C4AE8F3522FF82680000DB71 /* Debug */,
+				C4AE8F3622FF82680000DB71 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C4AE8F3722FF82680000DB71 /* Build configuration list for PBXNativeTarget "UtStateParksTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C4AE8F3822FF82680000DB71 /* Debug */,
+				C4AE8F3922FF82680000DB71 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C4AE8F0F22FF82670000DB71 /* Project object */;
+}

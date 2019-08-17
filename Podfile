@@ -6,6 +6,7 @@ target 'UtStateParks' do
   use_frameworks!
 
 pod 'lottie-ios'
+pod 'ForecastIO'
 
 
   # Pods for UtStateParks

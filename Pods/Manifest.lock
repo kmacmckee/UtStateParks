@@ -1,16 +1,20 @@
 PODS:
+  - ForecastIO (6.0.1)
   - lottie-ios (3.0.6)
 
 DEPENDENCIES:
+  - ForecastIO
   - lottie-ios
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - ForecastIO
     - lottie-ios
 
 SPEC CHECKSUMS:
+  ForecastIO: 2e3f47e81d0bf8301c632ad56d2ceb0a64083340
   lottie-ios: d030b6cda141cfd8bbaa3db89264785e6fdf675a
 
-PODFILE CHECKSUM: 04637775202769cf20d24007f4f486a423d29f32
+PODFILE CHECKSUM: 6a0d5374d50662dc7ffcc8631b3ebaf9c09884aa
 
 COCOAPODS: 1.7.0

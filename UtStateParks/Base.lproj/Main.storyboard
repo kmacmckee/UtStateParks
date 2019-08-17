@@ -84,10 +84,15 @@
                                                     <action selector="weatherIconTapped:" destination="lBt-Da-2Pt" eventType="touchUpInside" id="Ddp-gQ-SBX"/>
                                                 </connections>
                                             </button>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hKp-KD-oUE" customClass="AnimationView" customModule="Lottie">
+                                                <rect key="frame" x="294.5" y="1387" width="103.5" height="103.5"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </view>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="lhP-bo-sSu" firstAttribute="leading" secondItem="skJ-ab-4KB" secondAttribute="leading" constant="16" id="1lt-74-5mf"/>
+                                            <constraint firstItem="hKp-KD-oUE" firstAttribute="width" secondItem="gVX-MP-lXD" secondAttribute="height" multiplier="1:1" id="6Hp-hC-7Xo"/>
                                             <constraint firstAttribute="trailing" secondItem="sIN-ZE-PXu" secondAttribute="trailing" constant="87.5" id="9Ra-qV-1cL"/>
                                             <constraint firstItem="lhP-bo-sSu" firstAttribute="top" secondItem="uL5-JW-5Lb" secondAttribute="bottom" constant="8" id="B4T-fd-ayU"/>
                                             <constraint firstItem="dX3-2t-ZZ8" firstAttribute="height" secondItem="jS1-no-cfD" secondAttribute="height" multiplier="1/2" id="DXo-r0-FbI"/>
@@ -102,6 +107,8 @@
                                             <constraint firstItem="gVX-MP-lXD" firstAttribute="width" secondItem="skJ-ab-4KB" secondAttribute="width" multiplier="1/4" id="O9L-HA-NLB"/>
                                             <constraint firstAttribute="trailing" secondItem="lhP-bo-sSu" secondAttribute="trailing" constant="16" id="R0O-Yv-7OY"/>
                                             <constraint firstItem="Gi4-Pz-oqI" firstAttribute="top" secondItem="gVX-MP-lXD" secondAttribute="bottom" constant="8" id="Rul-Tr-bDg"/>
+                                            <constraint firstItem="hKp-KD-oUE" firstAttribute="height" secondItem="gVX-MP-lXD" secondAttribute="height" id="Srn-zl-9Ri"/>
+                                            <constraint firstAttribute="trailing" secondItem="hKp-KD-oUE" secondAttribute="trailing" constant="16" id="Uo5-mT-F97"/>
                                             <constraint firstItem="sIN-ZE-PXu" firstAttribute="leading" secondItem="skJ-ab-4KB" secondAttribute="leading" constant="16" id="Xnp-ZL-xrZ"/>
                                             <constraint firstItem="jS1-no-cfD" firstAttribute="leading" secondItem="skJ-ab-4KB" secondAttribute="leading" id="Y3v-sz-qJR"/>
                                             <constraint firstItem="OCg-DR-m6f" firstAttribute="width" secondItem="jS1-no-cfD" secondAttribute="width" multiplier="1/2" id="Ymy-pW-QDl"/>
@@ -122,6 +129,7 @@
                                             <constraint firstItem="Lds-5i-Tfc" firstAttribute="height" secondItem="dX3-2t-ZZ8" secondAttribute="height" multiplier="6/10" id="vY6-Yv-l0m"/>
                                             <constraint firstItem="7aP-ly-HcJ" firstAttribute="leading" secondItem="gVX-MP-lXD" secondAttribute="trailing" constant="35" id="xhw-hk-neL"/>
                                             <constraint firstItem="sIN-ZE-PXu" firstAttribute="bottom" secondItem="dX3-2t-ZZ8" secondAttribute="bottom" id="zk4-5I-gDs"/>
+                                            <constraint firstItem="hKp-KD-oUE" firstAttribute="centerY" secondItem="gVX-MP-lXD" secondAttribute="centerY" id="zsa-r4-bXK"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -154,6 +162,7 @@
                         <outlet property="gradientImageView" destination="dX3-2t-ZZ8" id="4Or-n5-epw"/>
                         <outlet property="parkImageView" destination="jS1-no-cfD" id="xVy-By-WIC"/>
                         <outlet property="parkNameLabel" destination="sIN-ZE-PXu" id="6pC-9n-TvQ"/>
+                        <outlet property="weatherAnimationView" destination="hKp-KD-oUE" id="EKA-8u-mQW"/>
                         <outlet property="weatherIcon" destination="7aP-ly-HcJ" id="LLf-fP-bCX"/>
                         <outlet property="weatherLabel" destination="uL5-JW-5Lb" id="ji7-tv-J9v"/>
                         <outlet property="weatherTextView" destination="lhP-bo-sSu" id="8B1-4t-KH4"/>

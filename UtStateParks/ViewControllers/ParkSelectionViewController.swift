@@ -12,6 +12,8 @@ import Lottie
 class ParkSelectionViewController: UIViewController {
 
     
+    @IBOutlet weak var weatherAnimationView: AnimationView!
+    
     @IBOutlet weak var weatherIcon: UIButton!
     @IBOutlet weak var weatherTextView: UITextView!
     @IBOutlet weak var weatherLabel: UILabel!
@@ -25,13 +27,16 @@ class ParkSelectionViewController: UIViewController {
     @IBOutlet weak var gradientImageView: UIImageView!
     @IBOutlet weak var parkImageView: UIImageView!
     
+    var parkIndex = 0
+    let forecast = ForecastClient()
+    let parksAPI = ParksAPI()
+    var weatherImage: UIImage?
     var currentPark: Park? {
         didSet {
             updateViews()
         }
     }
-    var parkIndex = 0
-    let parksAPI = ParksAPI()
+    
     var parks: [Park]? {
         didSet {
             updateViews()
@@ -86,6 +91,7 @@ class ParkSelectionViewController: UIViewController {
     func updateViews() {
         
         let parkImage = getParkImage()
+        let weather = getParkWeather()
         
         DispatchQueue.main.async {
             
@@ -108,6 +114,7 @@ class ParkSelectionViewController: UIViewController {
             self.weatherIcon.isHidden = false
             self.weatherLabel.text = "Weather:"
             self.weatherTextView.text = self.currentPark?.weatherInfo
+            
             
         }
     }
@@ -150,6 +157,37 @@ class ParkSelectionViewController: UIViewController {
             return UIImage(named: "DelicateArch")!
         }
     }
+    
+    func getParkWeather() {
+        let coords = currentPark?.latLong.split(separator: ",")
+        guard let latString = coords?.first,
+            let longString = coords?.last else { return }
+        
+        let latStringFormatted = latString.filter("0123456789.".contains)
+        let lat = Double(latStringFormatted)
+        
+        let longStringFormatted = longString.filter("0123456789.".contains)
+        let long = Double(longStringFormatted)
+        
+        
+        
+        forecast.client.getForecast(latitude: lat!, longitude: long!) { (result) in
+            switch result {
+            case .success(let currentForecast, let requestMetadata):
+                print(currentForecast.hourly?.summary)
+                print(currentForecast.hourly?.icon?.rawValue)
+                print("yay")
+                return
+            case .failure(let error):
+                // Uh-oh. We have an error!
+                print("Error")
+                return
+            }
+        }
+        
+        
+    }
+    
     
     
     @objc func respondToSwipeGesture(gesture: UIGestureRecognizer) {

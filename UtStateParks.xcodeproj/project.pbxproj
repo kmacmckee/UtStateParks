@@ -94,6 +94,30 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		C4A06D2223089DF900535B42 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				C4AE8F3C22FF83270000DB71 /* ParksAPI.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		C4A06D2323089E0800535B42 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C4AE8F3A22FF82A10000DB71 /* Park.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		C4A06D2423089F3100535B42 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				C4AE8F4322FFB65C0000DB71 /* UIImage+Gradient.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		C4AE8F0E22FF82670000DB71 = {
 			isa = PBXGroup;
 			children = (
@@ -119,9 +143,9 @@
 			children = (
 				C4AE8F1A22FF82670000DB71 /* AppDelegate.swift */,
 				C4AE8F1E22FF82670000DB71 /* Main.storyboard */,
-				C4AE8F3A22FF82A10000DB71 /* Park.swift */,
-				C4AE8F3C22FF83270000DB71 /* ParksAPI.swift */,
-				C4AE8F4322FFB65C0000DB71 /* UIImage+Gradient.swift */,
+				C4A06D2323089E0800535B42 /* Models */,
+				C4A06D2223089DF900535B42 /* Networking */,
+				C4A06D2423089F3100535B42 /* Extensions */,
 				C4AE8F4222FFA14E0000DB71 /* ViewControllers */,
 				C4AE8F2122FF82680000DB71 /* Assets.xcassets */,
 				C4AE8F2322FF82680000DB71 /* LaunchScreen.storyboard */,

@@ -12,10 +12,13 @@ import Lottie
 class ParkSelectionViewController: UIViewController {
 
     
+    @IBOutlet weak var weatherIcon: UIButton!
     @IBOutlet weak var weatherTextView: UITextView!
     @IBOutlet weak var weatherLabel: UILabel!
     
-    @IBOutlet weak var directionsIcon: UIImageView!
+    @IBOutlet weak var directionsLabel: UILabel!
+
+    @IBOutlet weak var directionsIcon: UIButton!
     @IBOutlet weak var directionsTextView: UITextView!
     @IBOutlet weak var animationView: AnimationView!
     @IBOutlet weak var parkNameLabel: UILabel!
@@ -50,6 +53,11 @@ class ParkSelectionViewController: UIViewController {
         swipeLeft.direction = UISwipeGestureRecognizer.Direction.left
         parkImageView.addGestureRecognizer(swipeLeft)
         
+        
+        directionsIcon.isUserInteractionEnabled = true
+        let directionsTap = UIGestureRecognizer(target: self, action: #selector(self.directionsTapped(gesture:)))
+        directionsIcon.addGestureRecognizer(directionsTap)
+        
     }
     
     
@@ -76,14 +84,8 @@ class ParkSelectionViewController: UIViewController {
     
     
     func updateViews() {
-//        guard let parks = parks else { return }
-        
-//        print(parks.map({ $0.fullName }))
-
-//        self.currentPark = parks.first
         
         let parkImage = getParkImage()
-        
         
         DispatchQueue.main.async {
             
@@ -98,13 +100,14 @@ class ParkSelectionViewController: UIViewController {
             self.parkImageView.image = parkImage
             self.gradientImageView.image = gradient
             
-            self.directionsIcon.image = UIImage(named: "iosMapsIcon")
+            self.directionsLabel.text = "Directions:"
+            self.directionsIcon.isHidden = false
             self.directionsTextView.text = self.currentPark?.directionsInfo
             
+            
+            self.weatherIcon.isHidden = false
             self.weatherLabel.text = "Weather:"
             self.weatherTextView.text = self.currentPark?.weatherInfo
-            
-            
             
         }
     }
@@ -181,7 +184,24 @@ class ParkSelectionViewController: UIViewController {
     }
     
     
+    @objc func directionsTapped(gesture: UIGestureRecognizer) {
+        
+        UIApplication.shared.open(URL(string: "http://maps.apple.com/")!, options: [:], completionHandler: nil)
+        
+    }
+    
 
+    @IBAction func weatherIconTapped(_ sender: Any) {
+        
+        
+    }
+    
+    
+    @IBAction func directionsIconTapped(_ sender: Any) {
+        UIApplication.shared.open(URL(string: "http://maps.apple.com/")!, options: [:], completionHandler: nil)
+    }
+    
+    
     /*
     // MARK: - Navigation
 

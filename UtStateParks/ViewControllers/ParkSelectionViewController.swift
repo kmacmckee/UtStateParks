@@ -16,6 +16,7 @@ class ParkSelectionViewController: UIViewController {
     @IBOutlet weak var temperatureLabel: UILabel!
     @IBOutlet weak var weatherAnimationView: AnimationView!
     
+    @IBOutlet weak var hikingButton: UIButton!
     @IBOutlet weak var weatherTextView: UITextView!
     @IBOutlet weak var weatherLabel: UILabel!
     
@@ -38,15 +39,14 @@ class ParkSelectionViewController: UIViewController {
     var currentPark: Park? {
         didSet {
             updateViews()
-            print(currentPark?.latLong)
         }
     }
     
-    var parks: [Park]? {
+    var parks: [Park]? /*{
         didSet {
             updateViews()
         }
-    }
+    }*/
     
     
     override func viewDidLoad() {
@@ -117,6 +117,9 @@ class ParkSelectionViewController: UIViewController {
             
             self.startWeatherAnimation()
             self.temperatureLabel.text = self.temperature
+            self.hikingButton.isHidden = false
+            
+            
         }
     }
     

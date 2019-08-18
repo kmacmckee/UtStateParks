@@ -77,21 +77,32 @@
                                                 </connections>
                                             </button>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hKp-KD-oUE" customClass="AnimationView" customModule="Lottie">
-                                                <rect key="frame" x="135.5" y="1387" width="103.5" height="103.5"/>
+                                                <rect key="frame" x="155.5" y="1387" width="103.5" height="103.5"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lJn-1U-365">
-                                                <rect key="frame" x="161.5" y="1413" width="51.5" height="51.5"/>
+                                                <rect key="frame" x="181" y="1413" width="52" height="51.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xta-Wl-pOM">
+                                                <rect key="frame" x="294.5" y="1387" width="103.5" height="103.5"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="Xta-Wl-pOM" secondAttribute="height" multiplier="1:1" id="US1-0J-789"/>
+                                                </constraints>
+                                                <state key="normal" image="editedHikingIcon"/>
+                                                <connections>
+                                                    <action selector="directionsIconTapped:" destination="lBt-Da-2Pt" eventType="touchUpInside" id="85R-Q3-ugE"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="lJn-1U-365" firstAttribute="width" secondItem="hKp-KD-oUE" secondAttribute="width" multiplier="1/2" id="1gs-Se-qzb"/>
                                             <constraint firstItem="lhP-bo-sSu" firstAttribute="leading" secondItem="skJ-ab-4KB" secondAttribute="leading" constant="16" id="1lt-74-5mf"/>
                                             <constraint firstItem="hKp-KD-oUE" firstAttribute="width" secondItem="gVX-MP-lXD" secondAttribute="height" multiplier="1:1" id="6Hp-hC-7Xo"/>
+                                            <constraint firstItem="Xta-Wl-pOM" firstAttribute="centerY" secondItem="gVX-MP-lXD" secondAttribute="centerY" id="8H6-J1-LP7"/>
                                             <constraint firstAttribute="trailing" secondItem="sIN-ZE-PXu" secondAttribute="trailing" constant="87.5" id="9Ra-qV-1cL"/>
                                             <constraint firstItem="lJn-1U-365" firstAttribute="centerY" secondItem="hKp-KD-oUE" secondAttribute="centerY" id="AAR-Rf-wR8"/>
                                             <constraint firstItem="lhP-bo-sSu" firstAttribute="top" secondItem="uL5-JW-5Lb" secondAttribute="bottom" constant="8" id="B4T-fd-ayU"/>
@@ -102,17 +113,20 @@
                                             <constraint firstItem="dX3-2t-ZZ8" firstAttribute="width" secondItem="jS1-no-cfD" secondAttribute="width" id="Hdj-mm-baz"/>
                                             <constraint firstItem="dX3-2t-ZZ8" firstAttribute="bottom" secondItem="jS1-no-cfD" secondAttribute="bottom" constant="10" id="HgG-m0-wy4"/>
                                             <constraint firstItem="lhP-bo-sSu" firstAttribute="height" secondItem="Lds-5i-Tfc" secondAttribute="height" id="IzH-U7-Wtx"/>
+                                            <constraint firstItem="Xta-Wl-pOM" firstAttribute="width" secondItem="Xta-Wl-pOM" secondAttribute="height" multiplier="1:1" id="KhO-Gz-k9B"/>
+                                            <constraint firstItem="hKp-KD-oUE" firstAttribute="centerX" secondItem="skJ-ab-4KB" secondAttribute="centerX" id="Lqh-xP-mh6"/>
                                             <constraint firstItem="Gi4-Pz-oqI" firstAttribute="width" secondItem="skJ-ab-4KB" secondAttribute="width" multiplier="1/2" id="O3I-NG-Odb"/>
                                             <constraint firstItem="gVX-MP-lXD" firstAttribute="width" secondItem="skJ-ab-4KB" secondAttribute="width" multiplier="1/4" id="O9L-HA-NLB"/>
                                             <constraint firstAttribute="trailing" secondItem="lhP-bo-sSu" secondAttribute="trailing" constant="16" id="R0O-Yv-7OY"/>
                                             <constraint firstItem="Gi4-Pz-oqI" firstAttribute="top" secondItem="gVX-MP-lXD" secondAttribute="bottom" constant="8" id="Rul-Tr-bDg"/>
+                                            <constraint firstItem="Xta-Wl-pOM" firstAttribute="width" secondItem="gVX-MP-lXD" secondAttribute="height" multiplier="1:1" id="SGk-mf-L2R"/>
                                             <constraint firstItem="hKp-KD-oUE" firstAttribute="height" secondItem="gVX-MP-lXD" secondAttribute="height" id="Srn-zl-9Ri"/>
                                             <constraint firstItem="sIN-ZE-PXu" firstAttribute="leading" secondItem="skJ-ab-4KB" secondAttribute="leading" constant="16" id="Xnp-ZL-xrZ"/>
                                             <constraint firstItem="jS1-no-cfD" firstAttribute="leading" secondItem="skJ-ab-4KB" secondAttribute="leading" id="Y3v-sz-qJR"/>
                                             <constraint firstItem="lJn-1U-365" firstAttribute="height" secondItem="hKp-KD-oUE" secondAttribute="height" multiplier="1/2" id="Yh7-i7-J9T"/>
                                             <constraint firstItem="OCg-DR-m6f" firstAttribute="width" secondItem="jS1-no-cfD" secondAttribute="width" multiplier="1/2" id="Ymy-pW-QDl"/>
                                             <constraint firstItem="uL5-JW-5Lb" firstAttribute="top" secondItem="Lds-5i-Tfc" secondAttribute="bottom" constant="32" id="Yrc-de-ILb"/>
-                                            <constraint firstItem="hKp-KD-oUE" firstAttribute="leading" secondItem="gVX-MP-lXD" secondAttribute="trailing" constant="16" id="akL-bb-oHo"/>
+                                            <constraint firstAttribute="trailing" secondItem="Xta-Wl-pOM" secondAttribute="trailing" constant="16" id="cyx-Qn-ze1"/>
                                             <constraint firstAttribute="bottom" secondItem="lhP-bo-sSu" secondAttribute="bottom" constant="20" id="dhx-fv-3Td"/>
                                             <constraint firstItem="Gi4-Pz-oqI" firstAttribute="leading" secondItem="skJ-ab-4KB" secondAttribute="leading" constant="16" id="hek-vB-CTX"/>
                                             <constraint firstItem="jS1-no-cfD" firstAttribute="top" secondItem="skJ-ab-4KB" secondAttribute="top" constant="-45" id="iaj-8M-QBb"/>
@@ -126,6 +140,7 @@
                                             <constraint firstAttribute="trailing" secondItem="jS1-no-cfD" secondAttribute="trailing" id="rM3-2d-ff3"/>
                                             <constraint firstItem="lJn-1U-365" firstAttribute="centerX" secondItem="hKp-KD-oUE" secondAttribute="centerX" id="uX2-xh-LFe"/>
                                             <constraint firstItem="Lds-5i-Tfc" firstAttribute="height" secondItem="dX3-2t-ZZ8" secondAttribute="height" multiplier="6/10" id="vY6-Yv-l0m"/>
+                                            <constraint firstItem="Xta-Wl-pOM" firstAttribute="height" secondItem="gVX-MP-lXD" secondAttribute="height" id="yXB-6t-YJY"/>
                                             <constraint firstItem="sIN-ZE-PXu" firstAttribute="bottom" secondItem="dX3-2t-ZZ8" secondAttribute="bottom" id="zk4-5I-gDs"/>
                                             <constraint firstItem="hKp-KD-oUE" firstAttribute="centerY" secondItem="gVX-MP-lXD" secondAttribute="centerY" id="zsa-r4-bXK"/>
                                         </constraints>
@@ -158,6 +173,7 @@
                         <outlet property="directionsLabel" destination="Gi4-Pz-oqI" id="3Qs-xG-3Nf"/>
                         <outlet property="directionsTextView" destination="Lds-5i-Tfc" id="1aN-Tp-88M"/>
                         <outlet property="gradientImageView" destination="dX3-2t-ZZ8" id="4Or-n5-epw"/>
+                        <outlet property="hikingButton" destination="Xta-Wl-pOM" id="Oyb-EF-aFD"/>
                         <outlet property="parkImageView" destination="jS1-no-cfD" id="xVy-By-WIC"/>
                         <outlet property="parkNameLabel" destination="sIN-ZE-PXu" id="6pC-9n-TvQ"/>
                         <outlet property="temperatureLabel" destination="lJn-1U-365" id="n2T-t3-CVm"/>
@@ -172,6 +188,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="editedHikingIcon" width="600" height="600"/>
         <image name="iosMapsIcon" width="300" height="300"/>
     </resources>
 </document>

@@ -42,11 +42,11 @@ class ParkSelectionViewController: UIViewController {
         }
     }
     
-    var parks: [Park]? /*{
+    var parks: [Park]? {
         didSet {
             updateViews()
         }
-    }*/
+    }
     
     
     override func viewDidLoad() {
@@ -173,10 +173,10 @@ class ParkSelectionViewController: UIViewController {
         guard let latString = coords?.first,
             let longString = coords?.last else { return }
         
-        let latStringFormatted = latString.filter("0123456789.".contains)
+        let latStringFormatted = latString.filter("-0123456789.".contains)
         let lat = Double(latStringFormatted)
         
-        let longStringFormatted = longString.filter("0123456789.".contains)
+        let longStringFormatted = longString.filter("-0123456789.".contains)
         let long = Double(longStringFormatted)
         
         

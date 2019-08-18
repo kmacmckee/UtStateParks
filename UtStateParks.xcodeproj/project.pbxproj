@@ -10,6 +10,15 @@
 		3EEF3AB63BF6649028E88019 /* Pods_UtStateParks.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D7EBE224B73B69D91E1EF47 /* Pods_UtStateParks.framework */; };
 		7A186DD0AD616347737B23DF /* Pods_UtStateParksTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECC91DCD15911F89AA5B6701 /* Pods_UtStateParksTests.framework */; };
 		C4A06D262308BBF200535B42 /* ForecastClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A06D252308BBF200535B42 /* ForecastClient.swift */; };
+		C4A06D292308E27F00535B42 /* clear-day.json in Resources */ = {isa = PBXBuildFile; fileRef = C4A06D282308E27F00535B42 /* clear-day.json */; };
+		C4A06D2B2308E2A100535B42 /* clear-night.json in Resources */ = {isa = PBXBuildFile; fileRef = C4A06D2A2308E2A100535B42 /* clear-night.json */; };
+		C4A06D2D2308E2F300535B42 /* rainy.json in Resources */ = {isa = PBXBuildFile; fileRef = C4A06D2C2308E2F300535B42 /* rainy.json */; };
+		C4A06D2F2308E30A00535B42 /* snow.json in Resources */ = {isa = PBXBuildFile; fileRef = C4A06D2E2308E30A00535B42 /* snow.json */; };
+		C4A06D312308E33500535B42 /* wind.json in Resources */ = {isa = PBXBuildFile; fileRef = C4A06D302308E33500535B42 /* wind.json */; };
+		C4A06D332308E36300535B42 /* fog.json in Resources */ = {isa = PBXBuildFile; fileRef = C4A06D322308E36300535B42 /* fog.json */; };
+		C4A06D352308E38400535B42 /* partly-cloudy-day.json in Resources */ = {isa = PBXBuildFile; fileRef = C4A06D342308E38400535B42 /* partly-cloudy-day.json */; };
+		C4A06D372308E3AB00535B42 /* partly-cloudy-night.json in Resources */ = {isa = PBXBuildFile; fileRef = C4A06D362308E3AB00535B42 /* partly-cloudy-night.json */; };
+		C4A06D392308E40200535B42 /* cloudy.json in Resources */ = {isa = PBXBuildFile; fileRef = C4A06D382308E40200535B42 /* cloudy.json */; };
 		C4AE8F1B22FF82670000DB71 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AE8F1A22FF82670000DB71 /* AppDelegate.swift */; };
 		C4AE8F2022FF82670000DB71 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4AE8F1E22FF82670000DB71 /* Main.storyboard */; };
 		C4AE8F2222FF82680000DB71 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4AE8F2122FF82680000DB71 /* Assets.xcassets */; };
@@ -38,6 +47,15 @@
 		2E588456355355B054D92678 /* Pods-UtStateParks.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UtStateParks.debug.xcconfig"; path = "Target Support Files/Pods-UtStateParks/Pods-UtStateParks.debug.xcconfig"; sourceTree = "<group>"; };
 		6D7EBE224B73B69D91E1EF47 /* Pods_UtStateParks.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UtStateParks.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4A06D252308BBF200535B42 /* ForecastClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastClient.swift; sourceTree = "<group>"; };
+		C4A06D282308E27F00535B42 /* clear-day.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "clear-day.json"; sourceTree = "<group>"; };
+		C4A06D2A2308E2A100535B42 /* clear-night.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "clear-night.json"; sourceTree = "<group>"; };
+		C4A06D2C2308E2F300535B42 /* rainy.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = rainy.json; sourceTree = "<group>"; };
+		C4A06D2E2308E30A00535B42 /* snow.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = snow.json; sourceTree = "<group>"; };
+		C4A06D302308E33500535B42 /* wind.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = wind.json; sourceTree = "<group>"; };
+		C4A06D322308E36300535B42 /* fog.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = fog.json; sourceTree = "<group>"; };
+		C4A06D342308E38400535B42 /* partly-cloudy-day.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "partly-cloudy-day.json"; sourceTree = "<group>"; };
+		C4A06D362308E3AB00535B42 /* partly-cloudy-night.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "partly-cloudy-night.json"; sourceTree = "<group>"; };
+		C4A06D382308E40200535B42 /* cloudy.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = cloudy.json; sourceTree = "<group>"; };
 		C4AE8F1722FF82670000DB71 /* UtStateParks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UtStateParks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4AE8F1A22FF82670000DB71 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C4AE8F1F22FF82670000DB71 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -124,6 +142,15 @@
 		C4A06D272308CA9B00535B42 /* JSON Animations */ = {
 			isa = PBXGroup;
 			children = (
+				C4A06D2E2308E30A00535B42 /* snow.json */,
+				C4A06D382308E40200535B42 /* cloudy.json */,
+				C4A06D322308E36300535B42 /* fog.json */,
+				C4A06D362308E3AB00535B42 /* partly-cloudy-night.json */,
+				C4A06D2C2308E2F300535B42 /* rainy.json */,
+				C4A06D302308E33500535B42 /* wind.json */,
+				C4A06D282308E27F00535B42 /* clear-day.json */,
+				C4A06D2A2308E2A100535B42 /* clear-night.json */,
+				C4A06D342308E38400535B42 /* partly-cloudy-day.json */,
 				C4AE8F4022FF96970000DB71 /* loaderBlack.json */,
 			);
 			path = "JSON Animations";
@@ -267,9 +294,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C4A06D372308E3AB00535B42 /* partly-cloudy-night.json in Resources */,
+				C4A06D2F2308E30A00535B42 /* snow.json in Resources */,
 				C4AE8F2522FF82680000DB71 /* LaunchScreen.storyboard in Resources */,
 				C4AE8F2222FF82680000DB71 /* Assets.xcassets in Resources */,
+				C4A06D352308E38400535B42 /* partly-cloudy-day.json in Resources */,
+				C4A06D2B2308E2A100535B42 /* clear-night.json in Resources */,
+				C4A06D392308E40200535B42 /* cloudy.json in Resources */,
+				C4A06D312308E33500535B42 /* wind.json in Resources */,
+				C4A06D292308E27F00535B42 /* clear-day.json in Resources */,
+				C4A06D2D2308E2F300535B42 /* rainy.json in Resources */,
 				C4AE8F4122FF96970000DB71 /* loaderBlack.json in Resources */,
+				C4A06D332308E36300535B42 /* fog.json in Resources */,
 				C4AE8F2022FF82670000DB71 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

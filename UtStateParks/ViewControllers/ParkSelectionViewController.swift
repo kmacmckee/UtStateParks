@@ -8,13 +8,14 @@
 
 import UIKit
 import Lottie
+import MapKit
 
 class ParkSelectionViewController: UIViewController {
 
     
+    @IBOutlet weak var temperatureLabel: UILabel!
     @IBOutlet weak var weatherAnimationView: AnimationView!
     
-    @IBOutlet weak var weatherIcon: UIButton!
     @IBOutlet weak var weatherTextView: UITextView!
     @IBOutlet weak var weatherLabel: UILabel!
     
@@ -30,10 +31,14 @@ class ParkSelectionViewController: UIViewController {
     var parkIndex = 0
     let forecast = ForecastClient()
     let parksAPI = ParksAPI()
-    var weatherImage: UIImage?
+    
+    var weatherIconString: String? 
+    var temperature: String?
+    
     var currentPark: Park? {
         didSet {
             updateViews()
+            print(currentPark?.latLong)
         }
     }
     
@@ -58,10 +63,6 @@ class ParkSelectionViewController: UIViewController {
         swipeLeft.direction = UISwipeGestureRecognizer.Direction.left
         parkImageView.addGestureRecognizer(swipeLeft)
         
-        
-        directionsIcon.isUserInteractionEnabled = true
-        let directionsTap = UIGestureRecognizer(target: self, action: #selector(self.directionsTapped(gesture:)))
-        directionsIcon.addGestureRecognizer(directionsTap)
         
     }
     
@@ -91,7 +92,7 @@ class ParkSelectionViewController: UIViewController {
     func updateViews() {
         
         let parkImage = getParkImage()
-        let weather = getParkWeather()
+        getParkWeather()
         
         DispatchQueue.main.async {
             
@@ -111,11 +112,11 @@ class ParkSelectionViewController: UIViewController {
             self.directionsTextView.text = self.currentPark?.directionsInfo
             
             
-            self.weatherIcon.isHidden = false
             self.weatherLabel.text = "Weather:"
             self.weatherTextView.text = self.currentPark?.weatherInfo
             
-            
+            self.startWeatherAnimation()
+            self.temperatureLabel.text = self.temperature
         }
     }
     
@@ -125,7 +126,13 @@ class ParkSelectionViewController: UIViewController {
         animationView.animation = Animation.named("loaderBlack")
         animationView.loopMode = .loop
         animationView.play()
-        
+    }
+    
+    func startWeatherAnimation() {
+        guard let weather = weatherIconString else { return }
+        weatherAnimationView.animation = Animation.named(weather)
+        weatherAnimationView.loopMode = .loop
+        weatherAnimationView.play()
     }
     
     
@@ -173,14 +180,17 @@ class ParkSelectionViewController: UIViewController {
         
         forecast.client.getForecast(latitude: lat!, longitude: long!) { (result) in
             switch result {
-            case .success(let currentForecast, let requestMetadata):
-                print(currentForecast.hourly?.summary)
-                print(currentForecast.hourly?.icon?.rawValue)
-                print("yay")
+            case .success(let currentForecast, _):
+                
+                self.weatherIconString = currentForecast.currently?.icon?.rawValue
+                self.temperature = "\(Int(currentForecast.currently?.apparentTemperature ?? 0))℉"
+                
                 return
+                
+                
             case .failure(let error):
-                // Uh-oh. We have an error!
-                print("Error")
+                
+                NSLog("Error getting forecast: \(error)")
                 return
             }
         }
@@ -222,21 +232,32 @@ class ParkSelectionViewController: UIViewController {
     }
     
     
-    @objc func directionsTapped(gesture: UIGestureRecognizer) {
-        
-        UIApplication.shared.open(URL(string: "http://maps.apple.com/")!, options: [:], completionHandler: nil)
-        
-    }
-    
-
-    @IBAction func weatherIconTapped(_ sender: Any) {
-        
-        
-    }
-    
-    
     @IBAction func directionsIconTapped(_ sender: Any) {
         UIApplication.shared.open(URL(string: "http://maps.apple.com/")!, options: [:], completionHandler: nil)
+        
+        let coords = currentPark?.latLong.split(separator: ",")
+        guard let latString = coords?.first,
+            let longString = coords?.last else { return }
+        
+        let latStringFormatted = latString.filter("-0123456789.".contains)
+        let lat = Double(latStringFormatted)
+        
+        let longStringFormatted = longString.filter("-0123456789.".contains)
+        let long = Double(longStringFormatted)
+    
+        
+        let regionDistance:CLLocationDistance = 10000
+        let coordinates = CLLocationCoordinate2DMake(lat!, long!)
+        print(coordinates)
+        let regionSpan = MKCoordinateRegion(center: coordinates, latitudinalMeters: regionDistance, longitudinalMeters: regionDistance)
+        let options = [
+            MKLaunchOptionsMapCenterKey: NSValue(mkCoordinate: regionSpan.center),
+            MKLaunchOptionsMapSpanKey: NSValue(mkCoordinateSpan: regionSpan.span)
+        ]
+        let placemark = MKPlacemark(coordinate: coordinates, addressDictionary: nil)
+        let mapItem = MKMapItem(placemark: placemark)
+        mapItem.name = currentPark?.fullName
+        mapItem.openInMaps(launchOptions: options)
     }
     
     

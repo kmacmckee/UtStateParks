@@ -56,13 +56,17 @@ class ParkSelectionViewController: UIViewController {
         parkImageView.isUserInteractionEnabled = true
         let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGesture(gesture:)))
         swipeRight.direction = UISwipeGestureRecognizer.Direction.right
-        parkImageView.addGestureRecognizer(swipeRight)
         
-        parkImageView.isUserInteractionEnabled = true
         let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGesture(gesture:)))
         swipeLeft.direction = UISwipeGestureRecognizer.Direction.left
+        
+        parkImageView.addGestureRecognizer(swipeRight)
         parkImageView.addGestureRecognizer(swipeLeft)
         
+        
+        view.isUserInteractionEnabled = true
+        view.addGestureRecognizer(swipeRight)
+        view.addGestureRecognizer(swipeLeft)
         
     }
     

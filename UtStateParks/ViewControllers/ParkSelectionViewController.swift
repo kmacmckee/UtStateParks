@@ -29,6 +29,8 @@ class ParkSelectionViewController: UIViewController {
     @IBOutlet weak var gradientImageView: UIImageView!
     @IBOutlet weak var parkImageView: UIImageView!
     
+    
+    
     var parkIndex = 0
     let forecast = ForecastClient()
     let parksAPI = ParksAPI()
@@ -183,16 +185,15 @@ class ParkSelectionViewController: UIViewController {
         let longStringFormatted = longString.filter("-0123456789.".contains)
         let long = Double(longStringFormatted)
         
-
         forecast.client.getForecast(latitude: lat!, longitude: long!) { (result) in
             switch result {
             case .success(let currentForecast, _):
                 
                 self.weatherIconString = currentForecast.currently?.icon?.rawValue
                 self.temperature = "\(Int(currentForecast.currently?.apparentTemperature ?? 0))℉"
-                DispatchQueue.main.async {
-                    self.startWeatherAnimation()
-                }
+//                DispatchQueue.main.async {
+//                    self.startWeatherAnimation()
+//                }
                 
                 return
                 

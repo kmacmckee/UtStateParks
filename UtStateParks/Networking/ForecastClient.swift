@@ -11,6 +11,6 @@ import ForecastIO
 
 class ForecastClient {
     
-    let client = DarkSkyClient(apiKey: "65bbbd090f1c528d5b19ba96ae76627d")
+    let client = DarkSkyClient(apiKey: Config.forecastAPIKey)
     
 }

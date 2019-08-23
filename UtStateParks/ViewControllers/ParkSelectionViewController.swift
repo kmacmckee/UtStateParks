@@ -42,11 +42,11 @@ class ParkSelectionViewController: UIViewController {
         }
     }
     
-    var parks: [Park]? {
+    var parks: [Park]? /*{
         didSet {
             updateViews()
         }
-    }
+    }*/
     
     
     override func viewDidLoad() {
@@ -119,7 +119,7 @@ class ParkSelectionViewController: UIViewController {
             self.weatherLabel.text = "Weather:"
             self.weatherTextView.text = self.currentPark?.weatherInfo
             
-            self.startWeatherAnimation()
+            
             self.temperatureLabel.text = self.temperature
             self.hikingButton.isHidden = false
             
@@ -183,14 +183,16 @@ class ParkSelectionViewController: UIViewController {
         let longStringFormatted = longString.filter("-0123456789.".contains)
         let long = Double(longStringFormatted)
         
-        
-        
+
         forecast.client.getForecast(latitude: lat!, longitude: long!) { (result) in
             switch result {
             case .success(let currentForecast, _):
                 
                 self.weatherIconString = currentForecast.currently?.icon?.rawValue
                 self.temperature = "\(Int(currentForecast.currently?.apparentTemperature ?? 0))℉"
+                DispatchQueue.main.async {
+                    self.startWeatherAnimation()
+                }
                 
                 return
                 

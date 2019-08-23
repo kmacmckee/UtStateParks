@@ -11,10 +11,8 @@ import Foundation
 class ParksAPI {
     
     private let parksBaseURL = "https://developer.nps.gov/api/v1/parks"
-    private let parksAPIKey = "oEB2w0Kdr1T85hF5FIeNIYgXdl11M023Q7pjkXGS"
     
     private let trailsBaseURL = URL(string: "https://www.hikingproject.com/data/get-trails")!
-    private let trailsAPIKey = "200554629-1d6c855aff169c41e8ea471dd91a0c9f"
     
     
     var utParks: [Park] = []
@@ -25,7 +23,7 @@ class ParksAPI {
         var components = URLComponents(string: parksBaseURL)!
         components.queryItems = [
             URLQueryItem(name: "stateCode", value: "Ut"),
-            URLQueryItem(name: "api_key", value: parksAPIKey)
+            URLQueryItem(name: "api_key", value: Config.parksAPIKey)
         ]
         let requestURL = components.url!
         

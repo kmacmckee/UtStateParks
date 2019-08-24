@@ -11,7 +11,6 @@ import Foundation
 class ParksAPI {
     
     private let parksBaseURL = "https://developer.nps.gov/api/v1/parks"
-    
     private let trailsBaseURL = URL(string: "https://www.hikingproject.com/data/get-trails")!
     
     

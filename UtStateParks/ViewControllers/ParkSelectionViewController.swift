@@ -11,7 +11,7 @@ import Lottie
 import MapKit
 
 class ParkSelectionViewController: UIViewController {
-
+    
     
     @IBOutlet weak var temperatureLabel: UILabel!
     @IBOutlet weak var weatherAnimationView: AnimationView!
@@ -30,6 +30,7 @@ class ParkSelectionViewController: UIViewController {
     @IBOutlet weak var parkImageView: UIImageView!
     
     
+    let dataQueue = OperationQueue()
     
     var parkIndex = 0
     let forecast = ForecastClient()
@@ -38,22 +39,16 @@ class ParkSelectionViewController: UIViewController {
     var weatherIconString: String? 
     var temperature: String?
     
+    var parks: [Park]?
     var currentPark: Park? {
         didSet {
-            updateViews()
+            loadParkData()
         }
     }
-    
-    var parks: [Park]? /*{
-        didSet {
-            updateViews()
-        }
-    }*/
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadParks()
         
         parkImageView.isUserInteractionEnabled = true
         let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGesture(gesture:)))
@@ -70,63 +65,107 @@ class ParkSelectionViewController: UIViewController {
         view.addGestureRecognizer(swipeRight)
         view.addGestureRecognizer(swipeLeft)
         
+        
+        loadParks()
+        
     }
     
     
     func loadParks() {
-        startLoadAnimation()
-        
-        parksAPI.getParks { (parks, error) in
-            if let error = error {
-                NSLog("Error getting parks: \(error)")
-                return
-            }
-            if let parks = parks {
-                self.parks = parks
-                self.currentPark = parks.first
-            } else {
-                NSLog("No parks returned from fetch")
-                return
-            }
+        print("loadParks() started")
+        DispatchQueue.main.async {
+            print("startLoadAnimation")
+            self.startLoadAnimation()
         }
+
+        var components = URLComponents(string: Config.parksBaseURL)!
+        components.queryItems = [
+            URLQueryItem(name: "stateCode", value: "Ut"),
+            URLQueryItem(name: "api_key", value: Config.parksAPIKey)
+        ]
+        let requestURL = components.url!
+
+        let fetchParksOp = FetchParksOp(requestURL: requestURL)
+
+        let getFirstPark = BlockOperation {
+            print("getting first park")
+            self.currentPark = fetchParksOp.parks?[0]
+        }
+        
+        getFirstPark.addDependency(fetchParksOp)
+        
+        dataQueue.addOperation(fetchParksOp)
+        print(dataQueue.operations)
+        dataQueue.addOperation(getFirstPark)
+        print(dataQueue.operations)
     }
     
-    
-    
+    func loadParkData() {
+        print("loadParkData() started")
+        let coords = getCurrentParkCoord()
+        print("Coords: \(coords)")
+        let forecastOp = FetchForecastOp(lat: coords.lat, long: coords.long, forecast: forecast)
+        
+        let updateViewOp = BlockOperation {
+            print("updateViewsOp started")
+            guard let weather = forecastOp.weatherIconString else { return }
+            self.temperature = "\(forecastOp.temperature!)℉"
+            self.weatherAnimationView.animation = Animation.named(weather)
+            self.weatherAnimationView.loopMode = .loop
+            self.weatherAnimationView.play()
+            
+            self.updateViews()
+        }
+        
+        updateViewOp.addDependency(forecastOp)
+        
+        dataQueue.addOperation(forecastOp)
+        OperationQueue.main.addOperation(updateViewOp)
+        
+    }
     
     
     func updateViews() {
         
-        let parkImage = getParkImage()
-        getParkWeather()
+        animationView.stop()
+        animationView.isHidden = true
+        parkNameLabel.text = self.currentPark?.fullName
         
-        DispatchQueue.main.async {
-            
-            self.animationView.stop()
-            self.animationView.isHidden = true
-            self.parkNameLabel.text = self.currentPark?.fullName
-            
-            
-            
-            let gradient = UIImage.gradientImageWithBounds(bounds: self.gradientImageView.bounds, colors: [UIColor.clear.cgColor, UIColor.white.cgColor])
         
-            self.parkImageView.image = parkImage
-            self.gradientImageView.image = gradient
-            
-            self.directionsLabel.text = "Directions:"
-            self.directionsIcon.isHidden = false
-            self.directionsTextView.text = self.currentPark?.directionsInfo
-            
-            
-            self.weatherLabel.text = "Weather:"
-            self.weatherTextView.text = self.currentPark?.weatherInfo
-            
-            
-            self.temperatureLabel.text = self.temperature
-            self.hikingButton.isHidden = false
-            
-            
-        }
+        let gradient = UIImage.gradientImageWithBounds(bounds: self.gradientImageView.bounds, colors: [UIColor.clear.cgColor, UIColor.white.cgColor])
+        
+        let parkImage = self.getParkImage()
+    
+        parkImageView.image = parkImage
+        gradientImageView.image = gradient
+        
+        directionsLabel.text = "Directions:"
+        directionsIcon.isHidden = false
+        directionsTextView.text = self.currentPark?.directionsInfo
+        
+        
+        weatherLabel.text = "Weather:"
+        weatherTextView.text = self.currentPark?.weatherInfo
+        
+        
+        temperatureLabel.text = self.temperature
+        hikingButton.isHidden = false
+        
+    }
+    
+    
+    func getCurrentParkCoord() -> (lat: Double, long: Double) {
+        print("getting park coords")
+        let coords = currentPark?.latLong.split(separator: ",")
+        guard let latString = coords?.first,
+            let longString = coords?.last else { return (lat: 0, long: 0) }
+        
+        let latStringFormatted = latString.filter("-0123456789.".contains)
+        let lat = Double(latStringFormatted)
+        
+        let longStringFormatted = longString.filter("-0123456789.".contains)
+        let long = Double(longStringFormatted)
+        return (lat: lat!, long: long!)
     }
     
     
@@ -136,13 +175,13 @@ class ParkSelectionViewController: UIViewController {
         animationView.loopMode = .loop
         animationView.play()
     }
-    
-    func startWeatherAnimation() {
-        guard let weather = weatherIconString else { return }
-        weatherAnimationView.animation = Animation.named(weather)
-        weatherAnimationView.loopMode = .loop
-        weatherAnimationView.play()
-    }
+//    
+//    func startWeatherAnimation() {
+//        guard let weather = weatherIconString else { return }
+//        weatherAnimationView.animation = Animation.named(weather)
+//        weatherAnimationView.loopMode = .loop
+//        weatherAnimationView.play()
+//    }
     
     
     
@@ -174,39 +213,35 @@ class ParkSelectionViewController: UIViewController {
         }
     }
     
-    func getParkWeather() {
-        let coords = currentPark?.latLong.split(separator: ",")
-        guard let latString = coords?.first,
-            let longString = coords?.last else { return }
-        
-        let latStringFormatted = latString.filter("-0123456789.".contains)
-        let lat = Double(latStringFormatted)
-        
-        let longStringFormatted = longString.filter("-0123456789.".contains)
-        let long = Double(longStringFormatted)
-        
-        forecast.client.getForecast(latitude: lat!, longitude: long!) { (result) in
-            switch result {
-            case .success(let currentForecast, _):
-                
-                self.weatherIconString = currentForecast.currently?.icon?.rawValue
-                self.temperature = "\(Int(currentForecast.currently?.apparentTemperature ?? 0))℉"
-//                DispatchQueue.main.async {
-//                    self.startWeatherAnimation()
-//                }
-                
-                return
-                
-                
-            case .failure(let error):
-                
-                NSLog("Error getting forecast: \(error)")
-                return
-            }
-        }
-        
-        
-    }
+//    func getParkWeather() {
+//        let coords = currentPark?.latLong.split(separator: ",")
+//        guard let latString = coords?.first,
+//            let longString = coords?.last else { return }
+//
+//        let latStringFormatted = latString.filter("-0123456789.".contains)
+//        let lat = Double(latStringFormatted)
+//
+//        let longStringFormatted = longString.filter("-0123456789.".contains)
+//        let long = Double(longStringFormatted)
+//
+//        forecast.client.getForecast(latitude: lat!, longitude: long!) { (result) in
+//            switch result {
+//            case .success(let currentForecast, _):
+//
+//                self.weatherIconString = currentForecast.currently?.icon?.rawValue
+//                self.temperature = "\(Int(currentForecast.currently?.apparentTemperature ?? 0))℉"
+//                return
+//
+//
+//            case .failure(let error):
+//
+//                NSLog("Error getting forecast: \(error)")
+//                return
+//            }
+//        }
+//
+//
+//    }
     
     
     

@@ -10,6 +10,10 @@
 		3EEF3AB63BF6649028E88019 /* Pods_UtStateParks.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D7EBE224B73B69D91E1EF47 /* Pods_UtStateParks.framework */; };
 		7A186DD0AD616347737B23DF /* Pods_UtStateParksTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECC91DCD15911F89AA5B6701 /* Pods_UtStateParksTests.framework */; };
 		C408AA25230F6C51001FF27F /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = C408AA24230F6C51001FF27F /* Config.swift */; };
+		C47D178C2311B5F700C4088D /* ConcurrentOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47D178B2311B5F700C4088D /* ConcurrentOperation.swift */; };
+		C47D178F2311B65500C4088D /* FetchParksOp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47D178E2311B65500C4088D /* FetchParksOp.swift */; };
+		C47D17912311B8C800C4088D /* URL+Secure.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47D17902311B8C800C4088D /* URL+Secure.swift */; };
+		C47D17932311BACE00C4088D /* FetchForecastOp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47D17922311BACE00C4088D /* FetchForecastOp.swift */; };
 		C4A06D262308BBF200535B42 /* ForecastClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A06D252308BBF200535B42 /* ForecastClient.swift */; };
 		C4A06D292308E27F00535B42 /* clear-day.json in Resources */ = {isa = PBXBuildFile; fileRef = C4A06D282308E27F00535B42 /* clear-day.json */; };
 		C4A06D2B2308E2A100535B42 /* clear-night.json in Resources */ = {isa = PBXBuildFile; fileRef = C4A06D2A2308E2A100535B42 /* clear-night.json */; };
@@ -48,6 +52,10 @@
 		2E588456355355B054D92678 /* Pods-UtStateParks.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UtStateParks.debug.xcconfig"; path = "Target Support Files/Pods-UtStateParks/Pods-UtStateParks.debug.xcconfig"; sourceTree = "<group>"; };
 		6D7EBE224B73B69D91E1EF47 /* Pods_UtStateParks.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UtStateParks.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C408AA24230F6C51001FF27F /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		C47D178B2311B5F700C4088D /* ConcurrentOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcurrentOperation.swift; sourceTree = "<group>"; };
+		C47D178E2311B65500C4088D /* FetchParksOp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchParksOp.swift; sourceTree = "<group>"; };
+		C47D17902311B8C800C4088D /* URL+Secure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Secure.swift"; sourceTree = "<group>"; };
+		C47D17922311BACE00C4088D /* FetchForecastOp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchForecastOp.swift; sourceTree = "<group>"; };
 		C4A06D252308BBF200535B42 /* ForecastClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastClient.swift; sourceTree = "<group>"; };
 		C4A06D282308E27F00535B42 /* clear-day.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "clear-day.json"; sourceTree = "<group>"; };
 		C4A06D2A2308E2A100535B42 /* clear-night.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "clear-night.json"; sourceTree = "<group>"; };
@@ -116,6 +124,16 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		C47D178D2311B5FC00C4088D /* Operations */ = {
+			isa = PBXGroup;
+			children = (
+				C47D178B2311B5F700C4088D /* ConcurrentOperation.swift */,
+				C47D178E2311B65500C4088D /* FetchParksOp.swift */,
+				C47D17922311BACE00C4088D /* FetchForecastOp.swift */,
+			);
+			path = Operations;
+			sourceTree = "<group>";
+		};
 		C4A06D2223089DF900535B42 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
@@ -138,6 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				C4AE8F4322FFB65C0000DB71 /* UIImage+Gradient.swift */,
+				C47D17902311B8C800C4088D /* URL+Secure.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -184,6 +203,7 @@
 			children = (
 				C4AE8F1A22FF82670000DB71 /* AppDelegate.swift */,
 				C4AE8F1E22FF82670000DB71 /* Main.storyboard */,
+				C47D178D2311B5FC00C4088D /* Operations */,
 				C4A06D2323089E0800535B42 /* Models */,
 				C4A06D2223089DF900535B42 /* Networking */,
 				C4A06D2423089F3100535B42 /* Extensions */,
@@ -391,11 +411,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C47D17912311B8C800C4088D /* URL+Secure.swift in Sources */,
+				C47D178C2311B5F700C4088D /* ConcurrentOperation.swift in Sources */,
+				C47D178F2311B65500C4088D /* FetchParksOp.swift in Sources */,
 				C4AE8F1B22FF82670000DB71 /* AppDelegate.swift in Sources */,
 				C4AE8F3F22FF8F790000DB71 /* ParkSelectionViewController.swift in Sources */,
 				C4AE8F3D22FF83270000DB71 /* ParksAPI.swift in Sources */,
 				C408AA25230F6C51001FF27F /* Config.swift in Sources */,
 				C4A06D262308BBF200535B42 /* ForecastClient.swift in Sources */,
+				C47D17932311BACE00C4088D /* FetchForecastOp.swift in Sources */,
 				C4AE8F4422FFB65C0000DB71 /* UIImage+Gradient.swift in Sources */,
 				C4AE8F3B22FF82A10000DB71 /* Park.swift in Sources */,
 			);

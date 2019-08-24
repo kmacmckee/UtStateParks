@@ -47,9 +47,8 @@ class ParkSelectionViewController: UIViewController {
     }
     
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
         parkImageView.isUserInteractionEnabled = true
         let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGesture(gesture:)))
         swipeRight.direction = UISwipeGestureRecognizer.Direction.right
@@ -60,14 +59,15 @@ class ParkSelectionViewController: UIViewController {
         parkImageView.addGestureRecognizer(swipeRight)
         parkImageView.addGestureRecognizer(swipeLeft)
         
-        
         view.isUserInteractionEnabled = true
         view.addGestureRecognizer(swipeRight)
         view.addGestureRecognizer(swipeLeft)
-        
-        
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    
         loadParks()
-        
     }
     
     
@@ -89,6 +89,7 @@ class ParkSelectionViewController: UIViewController {
 
         let getFirstPark = BlockOperation {
             print("getting first park")
+            self.parks = fetchParksOp.parks
             self.currentPark = fetchParksOp.parks?[0]
         }
         
@@ -248,7 +249,7 @@ class ParkSelectionViewController: UIViewController {
     @objc func respondToSwipeGesture(gesture: UIGestureRecognizer) {
         if let swipeGesture = gesture as? UISwipeGestureRecognizer {
             
-            guard let parks = parks else { return }
+            guard let parks = self.parks else { return }
             
             switch swipeGesture.direction {
             case UISwipeGestureRecognizer.Direction.left:
